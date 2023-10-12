@@ -20,10 +20,16 @@
 - 장애 지점 증가
 - 서버 비용 증가
 
-## HTTP Request
+## HTTP
 
 - Hyper Text Transfer Protocol
 - start-line, HTTP headers, empty line, body 구조
+
+### HTTPS
+
+- SSL 인증
+- 서버 측에서 인증서 기반으로 데이터 암호화
+- 인증서가 올바를 경우에만 복호화 가능
 
 ### Bearer 토큰
 
@@ -60,4 +66,7 @@
   판단이 어려울 때는 개인정보 보호법을 확인한다.
 - GA: Google 애널리틱스의 약자
 - 주니어가 꼭 읽으면 좋은 책: 피플웨어
-- feature 를 완성할 수 있는가?: 이게 어떻게 동작하는지 기술명세, 기획명세를 보고 알 수 있는가?
+- feature 를 완성할 수 있는가?:  
+  이게 어떻게 동작하는지 기술명세, 기획명세를 보고 알 수 있는가?
+- 프로젝트 구조가 기능상 영향을 주는 경우:  
+  webpack, rollpu.js 사용, next.js 사용
