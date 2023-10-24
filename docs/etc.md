@@ -1,5 +1,21 @@
 # Etc
 
+## useRouter 커스텀 훅 만들기
+
+- 유틸리티화
+- `useNavigate()` 이용
+- 1. currentPath: 현재 pathname. `window.location.pathname` 반환
+- 2. routeTo(string): 전달 받은 값인 path 로 이동
+- 3. back(): 이전 페이지로 이동, 이때 `-1` 값 지정
+- 4. forward(): 이후 페이지로 이동, 이때 `1` 값 지정
+- 5. isActiveRouter(string): 전달받은 값이 현재 pathname 과 같은지 조건 판단하여 `true` 또는 `false` 반환
+
+## 역할에 선을 긋지 않을 것
+
+- 역할 나누기, R&R(Role and Responsibility)
+- 프론트에서/백에서 해야하는 일이니까 나는 모르는 일이에요...  
+  ==> 이렇게 선을 긋게 되면 오류가 났을 때 난처해진다.
+
 ## CSR vs SSR, 그리고 SSG
 
 - [dev.to: Visual Explanation and Comparison of CSR, SSR, SSG and ISR](https://dev.to/pahanperera/visual-explanation-and-comparison-of-csr-ssr-ssg-and-isr-34ea)
@@ -48,7 +64,19 @@
 - Command line tool and library for transferring data with URLs
 - 명령줄이나 스트립트에서 데이터를 전송하는 데 사용하는 인터넷 전송 엔진
 
-## typescript: 컴포넌트에 React.FC 적용 지양
+## typescript
+
+### 여러 타입 지정 후 순회 문제
+
+- `type typeAB = typeA | typeB` 와 같이 OR 로 묶인 타입일 경우
+- `typeB` 에만 있는 property 의 값을 가져오려고 할 때:
+
+1. 값이 `undefined` 인지 아닌지, 즉 값이 truthy 한지 판단해서 값을 가져오는 코드 작성
+2. 그러나, 해당 property 및 가져온 값을 optional 로 지정하더라도 에러 발생
+3. typescript 는... : `typeA` 에는 해당 property 가 없으므로 호출 자체에 문제가 있다고 판단
+4. 따라서 해당 property 가 있는지 조건 판단 후 값을 가져와야 함
+
+### 컴포넌트에 React.FC 적용 지양
 
 - FC: Function Component 의 약자
 - `children` prop 이 optional 하게 적용되어 type 이 명확하지 않게 된다.
@@ -60,10 +88,36 @@
 - document 가 잘 만들어져 있는가?
 - 업데이트가 잘 이루어지는가?
 
+## 신입에게 필요한 정보
+
+- 신입으로 취업 준비할 때는 이 회사가 뭘 하는지 알아야 한다.  
+  신규 프로젝트보다 유지보수가 좋다. 만약 신규 프로젝트라면 사수가 필요하다.
+- 나는 무엇을 알고 있는가:  
+  어떤 대상에게서 일어나는 현상은 대상을 정의하는 것이 아니다.
+  ~ 하는 "것": X ~ 하는 "무언가": O  
+  오류를 설명할 때도...=> 이거를 클릭하면 작동이 안돼요. X
+- 문제가 생겼을 때 본인이 수습하려 하지 말지 무조건 주변에 알려야 한다.
+- 상태관리 라이브러리: recoil 은 사용자가 줄어드는 추세.  
+  멘토님은 zustand 추천  
+  취업 목적이라면 redux 공부
+- 알고리즘, 인프라 공부 필요
+- 필요할 때, next.js 부터 공부
+
+### 신입개발자로서...(멘토님의 개인적 견해)
+
+- 나는 정말 알고 있을까? 얼마나 소통이 되고, 학습 역량이 어떤가?  
+  내가 뭘 알고, 뭘 모르는지 메타인지 ==> 많이 질문하라
+- 기본적인 타입스크립트
+- 기술적 역량, 일정 컨트롤은 크게 요구하지 않는다.  
+  기능 구현 나열보다는... 무슨 문제를 어떻게 해결했는가? 어떤 점이 개선되었는가?
+  그러나, 앞으로 자신의 역량에 맞게 개발 일정을 객관화할 수 있어야 한다.
+- 라이브러리, 프레임워크가 회사와 매칭되는지 여부는 중요치 않다.
+
 ## 그 외...
 
-- 유저의 개인정보는 보안 이슈가 있으므로 클라이언트에 저장하지 않는다.  
-  판단이 어려울 때는 개인정보 보호법을 확인한다.
+- [https://velog.io/@teo/MVI-Architecture](https://velog.io/@teo/MVI-Architecture)
+- 자주 접하게 되는 자료구조: 트리, 큐, 스택
+- 함수나 변수, 컴포넌트: 역할을 한 문장으로 정의할 수 없을 때 분리한다.
 - GA: Google 애널리틱스의 약자
 - 주니어가 꼭 읽으면 좋은 책: 피플웨어
 - feature 를 완성할 수 있는가?:  
