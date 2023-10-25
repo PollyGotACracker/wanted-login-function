@@ -1,0 +1,3 @@
+[submodule "practice"]
+	path = practice
+	url = https://github.com/PollyGotACracker/wanted-login-function-practice.git
